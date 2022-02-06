@@ -1,0 +1,21 @@
+{
+    "name": "Capital One Credit Card Running Balance",
+    "description": "Shows the running balance on the Capital One credit card page",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "tabs"
+    ],
+    "host_permissions": [
+        "*://myaccounts.capitalone.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://myaccounts.capitalone.com/*"],
+            "js": ["compute.js"]
+        }
+    ]
+}
