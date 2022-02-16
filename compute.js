@@ -63,7 +63,7 @@ function parseCellAmount(cell) {
     const isCredit = t.charAt(0) === '-';
     
     const num = isCredit ? t.substring(2) : t.substring(1);
-    return parseFloat(num) * (isCredit ? -1 : 1);
+    return parseFloat(num.replace(/,/g, '')) * (isCredit ? -1 : 1);
 }
 
 function computeBalances() {
