@@ -43,7 +43,9 @@ function findBox() {
 function getBalance() {
     const t = document.getElementsByClassName('c1-ease-hero-numbers__amount');
     const wrap = t[0];
-    const dollars = parseInt(wrap.textContent.replace(/,/g, ''), 10);
+    const dollarsWrap = wrap.textContent;
+    const dollarsRaw = dollarsWrap.charAt(0) === '-' ? dollarsWrap.substring(1) : dollarsWrap;
+    const dollars = (dollarsWrap.charAt(0) === '-' ? -1 : 1) * parseInt(dollarsRaw.replace(/,/g, ''), 10);
     const cents = parseInt(wrap.nextSibling.textContent, 10);
     return dollars + (cents / 100);
 }
